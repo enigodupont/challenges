@@ -1,9 +1,9 @@
 #include <iostream>
+#include <cstdlib>
 #include <stack>
 
 using namespace std;
 
-const int GRIDSIZE = 20;
 
 enum nextPath {DOWN = 0, RIGHT = 1, DONE = 2};
 
@@ -20,7 +20,12 @@ class curSpot{
     int x;
     int y;
 };
-int main(){
+int main(int argc, char** argv){
+
+  int GRIDSIZE = 20;
+  if(argc == 2){
+   GRIDSIZE = atoi(argv[1]); 
+  }
 
   int numPaths = 0;
   stack<curSpot> pathStack;
